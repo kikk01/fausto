@@ -1,0 +1,49 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+
+    .no-padding {
+        padding: 0;
+    }
+    
+    header {
+        .image-header {
+            width: 100%;
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: lightgray;
+            padding-right: 75px;
+            padding-left: 75px;
+
+            h1 {
+                text-align: center;
+            }
+
+            p {
+                margin-bottom: 0.5em;
+            }
+        }
+
+    }
+
+    .services {
+
+        .image-block {
+            width: 100%;
+        }
+
+        .text-block {
+            padding: 12px;
+        }
+    }
+
+    footer {
+        background-color: black;
+        color: white;
+    }
+}

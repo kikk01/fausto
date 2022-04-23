@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+{% block body %}
+
+<div class="example-wrapper">
+    <header>
+        <img class="image-header" src="{{ asset('images/header.jpg') }}" alt="">
+        <div class="title">
+            <h1>JM Peinture</h1>
+            <p class="text-center">Vous propose ses préstations</p>
+        </div>
+    </header>
+    <div class="container-fluid services">
+        {% set i = 1 %}
+        {% for service in service_enum %}
+            {% set service_informations = homeServiceInformations(service.name) %}
+            <div class="row">
+                {% if i is even %}
+                    {% 
+                        include 'home/services/text.html.twig' 
+                        with {
+                            title: service_informations.title,
+                            subtitle: service_informations.subtitle,
+                            first_paragraph: service_informations.first_paragraph,
+                            second_paragraph: service_informations.second_paragraph
+                        } only
+                    %}
+                    {% 
+                        include 'home/services/image.html.twig' 
+                        with {image_pathname: service_informations.image_pathname, } only
+                    %}
+                {% else %}
+                    {% 
+                        include 'home/services/image.html.twig' 
+                        with {image_pathname: service_informations.image_pathname} only
+                    %}
+                    {% 
+                        include 'home/services/text.html.twig' 
+                        with {
+                            title: service_informations.title,
+                            subtitle: service_informations.subtitle,
+                            first_paragraph: service_informations.first_paragraph,
+                            second_paragraph: service_informations.second_paragraph
+                        } only
+                    %}
+                {% endif %}
+            </div>
+            {% set i = i + 1 %}
+        {% endfor %}
+    </div>
+    
+</div>
+
+{% endblock %}

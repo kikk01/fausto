@@ -1,0 +1,24 @@
+painting:
+    title: Plaquiste / Peinture
+    subtitle: Le coeur de métier
+    first_paragraph: <bold>JMPeinture</bold> c'est la peinture.Nous vous proposons un travail soigné avec des peintures de qualité
+    second_paragraph: ''
+    image_pathname: images/wall-painting.jpg
+concrete:
+    title: 'Béton ciré'
+    subtitle: 'Coup de coeur !'
+    first_paragraph: '<p>Nous aimons particulièrement appliquer du béton ciré sur sols et murs. <br>Celà apporte une touche originale, moderne et industriel à votre intérieur.</p>'
+    second_paragraph: '<p>En plus d\''être esthétique, le béton ciré est pratique est hygiènique car très facile d\''entretien. Il peut-être une très bonne alternative au carrelage dans vos salle de bain et toilette'
+    image_pathname: 'images/waxed-concrete.jpg'
+parquet:
+    title: 'Parquet'
+    subtitle: 'Réchauffez votre interieur'
+    first_paragraph: 'JMPeinture peut ausssi répondre à vos besoins de pose de parquet.' 
+    second_paragraph: 'Vous pourrez choisir la largeur et la teinte de vos lames sur le catalogue de notre fournisseur https://www.vitalityfloors.com/fr/'
+    image_pathname: 'images/parquet.jpg'
+facade:
+    title: 'Façade'
+    subtitle: 'Entrenez et valorisez votre bien'
+    first_paragraph: 'Repeindre votre façade est le meilleur moyen d\''apporter du cachet à votre maison !'
+    second_paragraph: 'Contactez JMPeinture pour un devis.'
+    image_pathname: 'images/facade.jpg'
