@@ -2,9 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}JM Peinture{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -16,4 +15,26 @@
     <body>
         {% block body %}{% endblock %}
     </body>
+    <footer>
+        <div class="container-fluid">
+            <div class="row no-padding text-center">
+                
+                
+                <div class="col-md-4 pb-5 px-5">
+                    <h2 class="pt-5">JMPeinture</h2>
+                    63 Rue des Encloses<br>
+                    26500 Bourg-lès-Valence<br>
+                    06 48 14 48 96<br>
+                    fausto.jm@orange.fr<br>
+                </div>
+                <div class="col-md-4 pb-5 px-5 mt85px">
+                    <a href="{{ path('home') }}">Formulaire de contact</a><br>
+                    <a href="{{ path('home', {'object':'estimate'}) }}">Demande de devis</a>
+                </div>
+                <div class="col-md-4 pb-5 px-5 mt85px">
+                    <a href="{{ path('home') }}">Mentions légales</a><br>
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>

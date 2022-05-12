@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Enum\HomeTemplateServiceElement;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Enum\Service as ServiceEnum;
-use App\Service\Service\Service;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
@@ -23,32 +23,21 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(Environment $twig): Response
     {
-        dd(ServiceEnum::cases());
-        $servicesRowsTemplate = '';
-        $i = 0;
-        foreach(ServiceEnum::cases() as $service) {
-            $i++;
+        $servicesTemplate = '';
+        
+        for($i=0;$i<count(ServiceEnum::cases());$i++) {
+            $service = ServiceEnum::cases()[$i]->name;
+
+            foreach (HomeTemplateServiceElement::cases() as $element) {
+                $translations[$element->name] = $this->translator->trans($service . "." . $element->name, [], 'services');
+            }
+
             
-            $servicesRowsTemplate .= $twig->render('home/services/services_rows_template.html.twig', $this->translate($service->name, $i));
+            $servicesTemplate .= ($i%2) ? 
+                $this->renderView('home/services/display_text_right.html.twig', $translations) :
+                $this->renderView('home/services/display_text_left.html.twig', $translations);
         }
 
-        return $this->render('home/home.html.twig', [
-            //'services_rows_template' => $servicesRowsTemplate,
-            'service_enum' => ServiceEnum::cases()
-        ]);
-    }
-
-    private function translate(string $serviceToTranslate, $i): array
-    {
-        $imageAndTextPositions = $i%2 === 0 ?
-            ['first_block' => 'text', 'second_block' => 'image'] : 
-            ['first_block' => 'image', 'second_block' => 'text'];
-
-        return [
-            'title' => $this->translator->trans($serviceToTranslate . '.title', [], 'services'),
-            'text' => $this->translator->trans($serviceToTranslate . '.text', [], 'services'),
-            'image_pathname' => $this->translator->trans($serviceToTranslate . '.image_pathname', [], 'services'),
-            'image_and_text_positions' => $imageAndTextPositions
-        ];
+        return $this->render('home/home.html.twig', ['services_template' => $servicesTemplate]);
     }
 }
