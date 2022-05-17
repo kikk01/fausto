@@ -14,27 +14,25 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-    </body>
-    <footer>
-        <div class="container-fluid">
-            <div class="row no-padding text-center">
-                
-                
-                <div class="col-md-4 pb-5 px-5">
-                    <h2 class="pt-5">JMPeinture</h2>
-                    63 Rue des Encloses<br>
-                    26500 Bourg-lès-Valence<br>
-                    06 48 14 48 96<br>
-                    fausto.jm@orange.fr<br>
-                </div>
-                <div class="col-md-4 pb-5 px-5 mt85px">
-                    <a href="{{ path('home') }}">Formulaire de contact</a><br>
-                    <a href="{{ path('home', {'object':'estimate'}) }}">Demande de devis</a>
-                </div>
-                <div class="col-md-4 pb-5 px-5 mt85px">
-                    <a href="{{ path('home') }}">Mentions légales</a><br>
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row no-padding text-center">
+                    <div class="col-md-4 pb-5 px-5">
+                        <h2 class="pt-5">JMPeinture</h2>
+                        63 Rue des Encloses<br>
+                        26500 Bourg-lès-Valence<br>
+                        06 48 14 48 96<br>
+                        fausto.jm@orange.fr<br>
+                    </div>
+                    <div class="col-md-4 pb-5 px-5 mt85px">
+                        <a href="{{ path('home') }}">Formulaire de contact</a><br>
+                        <a href="{{ path('home', {'object':'estimate'}) }}">Demande de devis</a>
+                    </div>
+                    <div class="col-md-4 pb-5 px-5 mt85px">
+                        <a href="{{ path('home') }}">Mentions légales</a><br>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </body>
 </html>
