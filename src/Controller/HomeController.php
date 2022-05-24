@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Enum\Service as ServiceEnum;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Twig\Environment;
 
 class HomeController extends AbstractController
 {
@@ -21,7 +20,7 @@ class HomeController extends AbstractController
 
 
     #[Route('/', name: 'home')]
-    public function index(Environment $twig): Response
+    public function index(): Response
     {
         $servicesTemplate = '';
         
